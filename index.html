@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Nexus - Addon Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(30,30,30,1) 0%, rgba(18,18,18,1) 100%);
+            z-index: -1;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+        }
+        .logo:hover {
+            transform: scale(1.1);
+        }
+        .logo::after {
+            content: "Go Back to Smart Home Nexus Official Website";
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+        .logo:hover::after {
+            opacity: 1;
+        }
+        .container {
+            z-index: 1;
+        }
+        h1 {
+            font-size: 16px;
+            animation: fadeIn 1.5s ease-in-out infinite alternate;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0.7;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .arrow {
+            width: 20px;
+            height: 20px;
+            margin: 10px auto;
+            border-left: 3px solid white;
+            border-bottom: 3px solid white;
+            transform: rotate(-45deg);
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0) rotate(-45deg);
+            }
+            50% {
+                transform: translateY(5px) rotate(-45deg);
+            }
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 300px;
+            margin: 15px auto;
+            padding: 15px;
+            font-size: 18px;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            background-color: white;
+            transition: background 0.3s, color 0.3s;
+            font-weight: bold;
+        }
+        .btn img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+        .btn-xbox:hover {
+            background: linear-gradient(90deg, #00C853, #008B3E);
+            color: white;
+        }
+        .btn-switch:hover {
+            background: linear-gradient(90deg, #FF3D00, #D50000);
+            color: white;
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #181818;
+            padding: 10px 0;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .powered-by {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5px;
+        }
+        .powered-by img {
+            max-width: 80px;
+            margin-left: 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .powered-by img:hover {
+            transform: scale(1.1);
+        }
+        details {
+            background: #222;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            width: 90%;
+            max-width: 600px;
+            cursor: pointer;
+        }
+        summary {
+            font-weight: bold;
+            color: #f8f8f8;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <a href="https://smarthomenexus.net/" target="_blank">
+            <img src="https://res.cloudinary.com/dsbups4jj/image/upload/v1741202792/SHN_jktye7.png" alt="Logo" class="logo">
+        </a>
+        <h1>Choose Your Console</h1>
+        <div class="arrow"></div>
+        <a href="https://rzp.io/rzp/shnad1" class="btn btn-xbox" target="_blank">
+            <img src="https://res.cloudinary.com/dsbups4jj/image/upload/v1741339062/Smart%20Home%20Nexus/xbkhrxssgdxcqznm7ydn.png" alt="Razorpay"> Pay to Play XBOX SERIES S
+        </a>
+        <a href="https://rzp.io/rzp/shnad2" class="btn btn-switch" target="_blank">
+            <img src="https://res.cloudinary.com/dsbups4jj/image/upload/v1741339062/Smart%20Home%20Nexus/xbkhrxssgdxcqznm7ydn.png" alt="Razorpay"> Pay to Play Nintendo Switch
+        </a>
+    </div>
+    <footer>
+        <details>
+            <summary>Terms of Use</summary>
+            <p>By using the gaming equipment, you agree to the terms and conditions set by Smart Home Nexus. Any damage or misuse may result in financial penalties. Please use the equipment responsibly.</p>
+        </details>
+        <p>&copy; <span id="year"></span> Smart Home Nexus. All rights reserved.</p>
+        <div class="powered-by">
+            <p>Powered by </p>
+            <a href="https://www.tenrin.dev/labs" target="_blank"><img src="https://res.cloudinary.com/dsbups4jj/image/upload/v1741202629/Labs_less_space_1_oxuuzk.png" alt="Powered by Labs"></a>
+        </div>
+    </footer>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
